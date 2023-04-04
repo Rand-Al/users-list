@@ -1,12 +1,36 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
+import ErrorPage from "./pages/error-page";
+import Posts from "./pages/Posts";
+import Albums from "./pages/Albums";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "posts/:userId",
+    element: <Posts />,
+  },
+  {
+    path: "albums/:userId",
+    element: <Albums />,
+  },
+  {
+    path: "albums/:userId",
+    element: <Albums />,
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

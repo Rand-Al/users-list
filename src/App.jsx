@@ -13,7 +13,9 @@ function App() {
         <tbody>
           <tr>
             <td>User 1</td>
-            <td>Posts Count</td>
+            <td>
+              <a href="/posts/1">Posts Count</a>
+            </td>
             <td>Album Count</td>
             <td>Todos Count</td>
           </tr>
