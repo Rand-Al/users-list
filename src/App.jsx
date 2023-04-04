@@ -1,4 +1,15 @@
+import { useState, useEffect } from "react";
+import axios from "axios";
+import TableRow from "./components/TableRow";
+
 function App() {
+  const [usersList, setUsersList] = useState([]);
+
+  useEffect(() => {
+    axios.get("https://jsonplaceholder.typicode.com/users").then((response) => {
+      setUsersList(response.data);
+    });
+  }, []);
   return (
     <div className="App ">
       <table className="resp-tab">
@@ -10,16 +21,7 @@ function App() {
             <th>Todos</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>User 1</td>
-            <td>
-              <a href="/posts/1">Posts Count</a>
-            </td>
-            <td>Album Count</td>
-            <td>Todos Count</td>
-          </tr>
-        </tbody>
+        <TableRow usersList={usersList} />
       </table>
     </div>
   );

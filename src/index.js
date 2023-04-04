@@ -6,6 +6,7 @@ import App from "./App";
 import ErrorPage from "./pages/error-page";
 import Posts from "./pages/Posts";
 import Albums from "./pages/Albums";
+import Todos from "./pages/Todo/Todos";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +15,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "posts/:userId",
+    path: "/posts/:userId",
     element: <Posts />,
   },
   {
@@ -22,8 +23,8 @@ const router = createBrowserRouter([
     element: <Albums />,
   },
   {
-    path: "albums/:userId",
-    element: <Albums />,
+    path: "todos/:userId",
+    element: <Todos />,
   },
 ]);
 

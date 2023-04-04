@@ -6,60 +6,65 @@
   width: 100%;
   max-width: 100%;
 }
-.resp-tab th, .resp-tab td {
+.resp-tab th,
+.resp-tab td {
   padding: 10px 20px;
   font-size: 13px;
   border: none;
-  font-family: Verdana, sans-serif;   
-  border: 1px solid #337AB7;
+  font-family: Verdana, sans-serif;
+  border: 1px solid #337ab7;
   vertical-align: top;
 }
 .resp-tab th {
-  color: #FFF;
-  background: #337AB7;
+  color: #fff;
+  background: #337ab7;
   font-weight: bold;
-  border: 1px solid #1a4a73;   
-  text-transform: uppercase;   
-  text-align: center;   
+  border: 1px solid #1a4a73;
+  text-transform: uppercase;
+  text-align: center;
 }
 .resp-tab tr:nth-child(even) {
   background: #edf7ff;
 }
 .resp-tab td span {
-  background: #337AB7;
-  color: #FFF;
+  background: #337ab7;
+  color: #fff;
   display: none;
   font-size: 11px;
   font-weight: bold;
-  font-family: Verdana, sans-serif;   
-  text-transform: uppercase;       
+  font-family: Verdana, sans-serif;
+  text-transform: uppercase;
   padding: 5px 10px;
   position: absolute;
   top: 0;
-  left: 0;   
+  left: 0;
 }
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   .resp-tab thead {
-      display: none;
+    display: none;
   }
   .resp-tab tr {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      margin-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
   }
   .resp-tab td {
-      margin: 0 -1px -1px 0;
-      padding-top: 35px;
-      position: relative;
-      width: 50%;
+    margin: 0 -1px -1px 0;
+    padding-top: 35px;
+    position: relative;
+    width: 50%;
   }
   .resp-tab td span {
-      display: block;
+    display: block;
   }
 }
-@media(max-width: 480px) {
+@media (max-width: 480px) {
   .resp-tab td {
-      width: 100%;
+    width: 100%;
   }
+}
+
+.wer {
+  margin-bottom: 20px;
 }
