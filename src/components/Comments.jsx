@@ -18,7 +18,7 @@ const Comments = ({ postId }) => {
       {comments.map((comment) => {
         return (
           <>
-            <div>
+            <div key={comment.id}>
               <span className="font-bold">Email:</span> {comment.email}
             </div>
             <div className="pl-9">{capitalize(comment.body)}</div>

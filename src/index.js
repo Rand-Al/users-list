@@ -8,6 +8,7 @@ import Posts from "./pages/Posts";
 import Post from "./pages/Post";
 import Albums from "./pages/Albums";
 import Todos from "./pages/Todo/Todos";
+import Album from "./pages/Photos";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: "albums/:userId",
     element: <Albums />,
+  },
+  {
+    path: "album/:albumId",
+    element: <Album />,
   },
   {
     path: "todos/:userId",
