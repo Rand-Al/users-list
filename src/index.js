@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App";
 import ErrorPage from "./pages/error-page";
 import Posts from "./pages/Posts";
+import Post from "./pages/Post";
 import Albums from "./pages/Albums";
 import Todos from "./pages/Todo/Todos";
 
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: "/posts/:userId",
     element: <Posts />,
+  },
+  {
+    path: "/post/:id",
+    element: <Post />,
   },
   {
     path: "albums/:userId",

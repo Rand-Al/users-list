@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { capitalize } from "../methods/methods.js";
 
 const Comments = ({ postId }) => {
   const [comments, setComments] = useState([]);
@@ -12,9 +13,17 @@ const Comments = ({ postId }) => {
       });
   }, [postId]);
   return (
-    <div>
+    <div className=" pl-8 w-3/4 mx-auto ">
+      <h2 className="font-bold">Comments:</h2>
       {comments.map((comment) => {
-        return <div className="wer">{comment.body}</div>;
+        return (
+          <>
+            <div>
+              <span className="font-bold">Email:</span> {comment.email}
+            </div>
+            <div className="pl-9">{capitalize(comment.body)}</div>
+          </>
+        );
       })}
     </div>
   );

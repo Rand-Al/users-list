@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .resp-tab {
   border-radius: 5px;
   font-weight: normal;
@@ -25,6 +29,7 @@
 }
 .resp-tab tr:nth-child(even) {
   background: #edf7ff;
+  color: #000;
 }
 .resp-tab td span {
   background: #337ab7;
@@ -65,6 +70,7 @@
   }
 }
 
-.wer {
-  margin-bottom: 20px;
+body {
+  background-image: url("https://st2.depositphotos.com/1357853/7025/i/450/depositphotos_70255123-stock-photo-color-paper-samples.jpg");
+  color: #fff;
 }

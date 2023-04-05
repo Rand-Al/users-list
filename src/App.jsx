@@ -11,8 +11,8 @@ function App() {
     });
   }, []);
   return (
-    <div className="App ">
-      <table className="resp-tab">
+    <div className="App flex items-center justify-center h-full w-full">
+      <table className="resp-tab bg-indigo-400 ">
         <thead>
           <tr>
             <th>User</th>
