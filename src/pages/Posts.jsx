@@ -6,7 +6,16 @@ import { NavLink } from "react-router-dom";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
+  const [comments, setComments] = useState([]);
   const { userId } = useParams();
+
+  useEffect(() => {
+    axios
+      .get(`https://jsonplaceholder.typicode.com/comments`)
+      .then((response) => {
+        setComments(response.data);
+      });
+  }, []);
 
   useEffect(() => {
     axios
@@ -30,12 +39,20 @@ const Posts = () => {
               <p className="pl-3">{capitalize(post.body)}</p>
               <div>
                 <NavLink
-                  className=" bg-indigo-600 self-start px-8 py-2"
+                  className=" hover:bg-indigo-900 transition-all bg-indigo-600 self-start ml-3 px-8 py-2"
                   to={`/post/${post.id}`}
                 >
                   More
                 </NavLink>
               </div>
+              <p className="ml-3 text-white opacity-75">
+                {
+                  comments.filter((comment) => {
+                    return comment.postId === post.id;
+                  }).length
+                }{" "}
+                comments
+              </p>
             </div>
           </div>
         );

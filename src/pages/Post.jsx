@@ -47,7 +47,7 @@ const Post = () => {
             onChange={(e) => setBodyValue(e.target.value)}
           />
           <button
-            className=" bg-indigo-600 self-start px-8 py-2"
+            className="hover:bg-indigo-900 transition-all bg-indigo-600 self-start px-8 py-2"
             onClick={() => saveEdit()}
           >
             Save
@@ -58,7 +58,7 @@ const Post = () => {
           <h2 className=" font-bold text-2xl pl-3">{capitalize(post.title)}</h2>
           <p className="pl-3">{capitalize(post.body)}</p>
           <button
-            className=" bg-indigo-600 self-start px-8 py-2"
+            className="hover:bg-indigo-900 transition-all bg-indigo-600 self-start px-8 py-2"
             onClick={() => editPost(post.title, post.body)}
           >
             Edit

@@ -9,7 +9,6 @@ const Comments = ({ postId }) => {
       .get(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
       .then((response) => {
         setComments(response.data);
-        console.log(response.data);
       });
   }, [postId]);
   return (
