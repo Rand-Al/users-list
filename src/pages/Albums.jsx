@@ -8,20 +8,18 @@ const Albums = () => {
   const [photos, setPhotos] = useState([]);
   const { userId } = useParams();
   useEffect(() => {
-    axios
-      .get(`https://jsonplaceholder.typicode.com/albums?userId=${userId}`)
-      .then((response) => {
-        setAlbums(response.data);
-      });
+    async function fetchData() {
+      const albumsResponse = await axios.get(
+        `https://jsonplaceholder.typicode.com/albums?userId=${userId}`
+      );
+      const photosResponse = await axios.get(
+        `https://jsonplaceholder.typicode.com/photos`
+      );
+      setAlbums(albumsResponse.data);
+      setPhotos(photosResponse.data);
+    }
+    fetchData();
   }, [userId]);
-  useEffect(() => {
-    axios
-      .get(`https://jsonplaceholder.typicode.com/photos`)
-      .then((response) => {
-        setPhotos(response.data);
-        console.log(photos);
-      });
-  }, [photos]);
   return (
     <div className="border p-5 my-10 container mx-auto bg-indigo-800 bg-opacity-60">
       {albums.map((album) => {

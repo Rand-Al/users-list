@@ -7,8 +7,9 @@ import ErrorPage from "./pages/error-page";
 import Posts from "./pages/Posts";
 import Post from "./pages/Post";
 import Albums from "./pages/Albums";
-import Todos from "./pages/Todo/Todos";
+import Todos from "./pages/Todos";
 import Album from "./pages/Photos";
+import Todo from "./pages/Todo";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const router = createBrowserRouter([
   {
     path: "todos/:userId",
     element: <Todos />,
+  },
+  {
+    path: "todo/:id",
+    element: <Todo />,
   },
 ]);
 
