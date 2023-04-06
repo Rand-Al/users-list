@@ -9,7 +9,7 @@ import Post from "./pages/Post";
 import Albums from "./pages/Albums";
 import Todos from "./pages/Todos";
 import Album from "./pages/Photos";
-import Todo from "./pages/Todo";
+import TodoPage from "./pages/TodoPage";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +39,7 @@ const router = createBrowserRouter([
   },
   {
     path: "todo/:id",
-    element: <Todo />,
+    element: <TodoPage />,
   },
 ]);
 

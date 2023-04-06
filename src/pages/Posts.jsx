@@ -10,20 +10,19 @@ const Posts = () => {
   const { userId } = useParams();
 
   useEffect(() => {
-    axios
-      .get(`https://jsonplaceholder.typicode.com/comments`)
-      .then((response) => {
-        setComments(response.data);
-      });
-  }, []);
-
-  useEffect(() => {
-    axios
-      .get(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
-      .then((response) => {
-        setPosts(response.data);
-      });
+    async function fetchData() {
+      const commentsResponse = await axios.get(
+        `https://jsonplaceholder.typicode.com/comments`
+      );
+      const postsResponse = await axios.get(
+        `https://jsonplaceholder.typicode.com/posts?userId=${userId}`
+      );
+      setComments(commentsResponse.data);
+      setPosts(postsResponse.data);
+    }
+    fetchData();
   }, [userId]);
+
   return (
     <div className=" container mx-auto my-5 posts ">
       {posts.map((post) => {

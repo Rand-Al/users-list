@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { capitalize } from "../methods/methods";
 
-const Todo = () => {
+const TodoPage = () => {
   const { id } = useParams();
   const [todo, setTodo] = useState([]);
   const [isEdit, setIsEdit] = useState(false);
@@ -76,4 +76,4 @@ const Todo = () => {
   );
 };
 
-export default Todo;
+export default TodoPage;
