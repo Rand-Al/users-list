@@ -13,8 +13,10 @@ const Post = () => {
   const { id } = useParams();
 
   const saveEdit = () => {
-    post.title = titleValue;
-    post.body = bodyValue;
+    const newPost = Object.assign({}, post);
+    newPost.title = titleValue;
+    newPost.body = bodyValue;
+    setPost(newPost);
     setIsEdit(false);
   };
   const editPost = (title, body) => {

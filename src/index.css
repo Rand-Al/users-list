@@ -9,6 +9,7 @@
   border-collapse: collapse;
   width: 100%;
   max-width: 100%;
+  opacity: 0.99;
 }
 .resp-tab th,
 .resp-tab td {
@@ -21,7 +22,7 @@
 }
 .resp-tab th {
   color: #fff;
-  background: #337ab7;
+  @apply bg-indigo-900;
   font-weight: bold;
   border: 1px solid #1a4a73;
   text-transform: uppercase;
@@ -31,8 +32,13 @@
   background: #edf7ff;
   color: #000;
 }
+.resp-tab tr:nth-child(odd) {
+  @apply bg-indigo-400;
+  color: #fff;
+}
 .resp-tab td span {
-  background: #337ab7;
+  @apply bg-indigo-700;
+
   color: #fff;
   display: none;
   font-size: 11px;
