@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import TableRow from "./components/TableRow";
 import Search from "./components/Search";
+import Loader from "./components/Loader";
 
 function App() {
   const [usersList, setUsersList] = useState([]);
@@ -9,6 +10,7 @@ function App() {
   const [albums, setAlbums] = useState([]);
   const [todos, setTodos] = useState([]);
   const [searchValue, setSearchValue] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const filterUsers = usersList.filter((user) => {
     return user.name.toLowerCase().includes(searchValue.toLowerCase());
@@ -32,37 +34,44 @@ function App() {
       setAlbums(albumsResponse.data);
       setTodos(todosResponse.data);
       setUsersList(usersResponse.data);
+      setIsLoading(false);
     }
     fetchData();
   }, []);
   return (
-    <div className="App flex items-center container mx-auto justify-center flex-col">
-      <Search searchValue={searchValue} setSearchValue={setSearchValue} />
-      <table className="resp-tab bg-indigo-400 ">
-        <thead>
-          <tr>
-            <th>User</th>
-            <th>Posts</th>
-            <th>Albums</th>
-            <th>Todos</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filterUsers.map((user) => {
-            return (
-              <TableRow
-                key={user.id}
-                usersList={usersList}
-                posts={posts}
-                albums={albums}
-                todos={todos}
-                user={user}
-              />
-            );
-          })}
-        </tbody>
-      </table>
-    </div>
+    <>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <div className="App flex items-center container mx-auto  justify-center flex-col">
+          <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+          <table className="resp-tab bg-indigo-400 my-3">
+            <thead>
+              <tr>
+                <th>User</th>
+                <th>Posts</th>
+                <th>Albums</th>
+                <th>Todos</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filterUsers.map((user) => {
+                return (
+                  <TableRow
+                    key={user.id}
+                    usersList={usersList}
+                    posts={posts}
+                    albums={albums}
+                    todos={todos}
+                    user={user}
+                  />
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      )}
+    </>
   );
 }
 

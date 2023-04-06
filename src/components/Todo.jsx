@@ -1,9 +1,13 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { capitalize } from "../methods/methods";
+
 const Todo = ({ todo, deleteTodo }) => {
   return (
-    <div key={todo.id} className="flex justify-between">
+    <div
+      key={todo.id}
+      className="flex justify-between border p-5 my-5 bg-indigo-800 bg-opacity-60"
+    >
       <h2 className="font-bold text-2xl mb-1">
         <NavLink
           className={

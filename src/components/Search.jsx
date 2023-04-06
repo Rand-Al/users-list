@@ -7,7 +7,7 @@ const Search = ({ searchValue, setSearchValue }) => {
       <form className="flex gap-3">
         <h2 className="pl-3 font-bold text-2xl">Search</h2>
         <input
-          className="text-black bg-opacity-40 pl-3"
+          className="text-black bg-opacity-40 pl-3 rounded outline-1"
           type="text"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
