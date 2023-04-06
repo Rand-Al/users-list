@@ -23,7 +23,7 @@ const Photos = () => {
   return (
     <>
       <Search searchValue={searchValue} setSearchValue={setSearchValue} />
-      <div className="flex flex-wrap border p-5 mb-10 container mx-auto bg-indigo-800 bg-opacity-60 gap-6 justify-between ">
+      <div className="flex flex-wrap border p-5 mb-10 container mx-auto bg-indigo-800 bg-opacity-60 gap-6 ">
         {filteredPhotos.map((photo) => {
           return <Photo photo={photo} key={photo.id} />;
         })}

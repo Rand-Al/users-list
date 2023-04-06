@@ -34,7 +34,7 @@ function App() {
       setUsersList(usersResponse.data);
     }
     fetchData();
-  });
+  }, []);
   return (
     <div className="App flex items-center container mx-auto justify-center flex-col">
       <Search searchValue={searchValue} setSearchValue={setSearchValue} />
