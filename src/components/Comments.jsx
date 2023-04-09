@@ -8,12 +8,14 @@ const Comments = ({ postId }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get(`https://jsonplaceholder.typicode.com/comments?postId=${postId}`)
-      .then((response) => {
-        setComments(response.data);
-        setIsLoading(false);
-      });
+    async function fetchData() {
+      const commentsResponse = await axios.get(
+        `https://jsonplaceholder.typicode.com/comments?postId=${postId}`
+      );
+      setComments(commentsResponse.data);
+      setIsLoading(false);
+    }
+    fetchData();
   }, [postId]);
   return (
     <>
@@ -22,16 +24,14 @@ const Comments = ({ postId }) => {
       ) : (
         <div className=" pl-8 w-3/4 mx-auto ">
           <h2 className="font-bold">Comments:</h2>
-          {comments.map((comment) => {
-            return (
-              <>
-                <div key={comment.id}>
-                  <span className="font-bold">Email:</span> {comment.email}
-                </div>
-                <div className="pl-9">{capitalize(comment.body)}</div>
-              </>
-            );
-          })}
+          {comments.map((comment) => (
+            <>
+              <div key={comment.id}>
+                <span className="font-bold">Email:</span> {comment.email}
+              </div>
+              <div className="pl-9">{capitalize(comment.body)}</div>
+            </>
+          ))}
         </div>
       )}
     </>

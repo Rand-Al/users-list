@@ -12,10 +12,6 @@ function App() {
   const [searchValue, setSearchValue] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
-  const filterUsers = usersList.filter((user) => {
-    return user.name.toLowerCase().includes(searchValue.toLowerCase());
-  });
-
   useEffect(() => {
     async function fetchData() {
       const postsResponse = await axios.get(
@@ -55,7 +51,7 @@ function App() {
               </tr>
             </thead>
             <tbody>
-              {filterUsers.map((user) => {
+              {usersList.filter((user) => user.name.toLowerCase().includes(searchValue.toLowerCase())).map((user) => {
                 return (
                   <TableRow
                     key={user.id}

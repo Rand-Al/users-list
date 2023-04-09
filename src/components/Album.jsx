@@ -11,12 +11,7 @@ const Album = ({ album, photos }) => {
         </NavLink>
       </h2>
       <p className="mb-4">
-        {
-          photos.filter((photo) => {
-            return photo.albumId === album.id;
-          }).length
-        }{" "}
-        photos
+        {photos.filter((photo) => photo.albumId === album.id).length} photos
       </p>
     </div>
   );

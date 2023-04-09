@@ -43,7 +43,7 @@ const TodoPage = () => {
       ) : (
         <>
           <Header />
-          <div className="border p-5 mb-10 mt-24 container mx-auto max-w-2xl bg-indigo-800 bg-opacity-60 flex-col flex justify-between items-center gap-4">
+          <div className="border p-5 mb-10 mt-24 container mx-auto bg-indigo-800 bg-opacity-60 flex-col flex justify-between items-center gap-4">
             {isEdit ? (
               <>
                 <input
@@ -64,7 +64,7 @@ const TodoPage = () => {
                 <h2 className=" pl-3 font-bold text-2xl">
                   <span
                     className={
-                      todo.completed === true ? "line-through" : "none"
+                      todo.completed === true ? `line-through p-5` : "none pl-5"
                     }
                   >
                     {capitalize(todo.title)}
